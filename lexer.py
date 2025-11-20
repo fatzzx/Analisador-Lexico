@@ -27,20 +27,20 @@ class Lexer:
     def pular_comentario(self):
         prox_char = self.proximo_char()
         if prox_char == '/':  
-            self.prox() # consome /
-            self.prox() # consome /
+            self.prox() 
+            self.prox() 
             while self.char_atual is not None and self.char_atual != '\n':
                 self.prox()
             return True
         elif prox_char == '*': 
-            self.prox() # consome /
-            self.prox() # consome *
+            self.prox()
+            self.prox() 
             while self.char_atual is not None:
                 if self.char_atual == '\n':
                     self.linha += 1
                 if self.char_atual == '*' and self.proximo_char() == '/':
-                    self.prox() # consome *
-                    self.prox() # consome /
+                    self.prox() 
+                    self.prox()
                     return True
                 self.prox()
             return True 
@@ -69,18 +69,13 @@ class Lexer:
         while self.char_atual is not None and (self.char_atual.isalnum() or self.char_atual == '_'):
             id_str += self.char_atual
             self.prox()
-
-        # CORREÇÃO: Converter para minúsculo para buscar no dicionário de palavras reservadas
         id_lower = id_str.lower()
 
         if id_lower in palavras_reservadas:
             codigo = palavras_reservadas[id_lower]
-            # Retorna o lexema original, mas com o código correto
             return Token(codigo, id_str, self.linha)
         
-        # Se não é palavra reservada, é identificador (IDN02)
         codigo_idn = "IDN02" 
-        # A tabela de símbolos cuida da truncagem e do maiúsculo internamente
         indice = self.tabela_simbolos.insert_symbol(id_str, codigo_idn, self.linha)
         
         return Token(codigo_idn, id_str, self.linha, indice_tab=indice)

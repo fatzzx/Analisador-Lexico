@@ -6,7 +6,7 @@ from lexer import Lexer
 
 def main():
     if len(sys.argv) < 2:
-        print("Uso: python main.py <nome_do_arquivo_sem_extensao>")
+        print("erro")
         return
 
     nome_base = sys.argv[1]
@@ -16,7 +16,7 @@ def main():
         with open(nome_arquivo, 'r', encoding='utf-8') as f:
             conteudo = f.read()
 
-        print(f"--- Iniciando Análise de {nome_arquivo} ---\n")
+        print(f"--- comecando -> {nome_arquivo} ---\n")
 
         tabela = SymbolTable()
         lexer = Lexer(conteudo, tabela)
@@ -27,7 +27,7 @@ def main():
             print(t)
 
     except FileNotFoundError:
-        print(f"Erro: Arquivo '{nome_arquivo}' não encontrado.")
+        print(f"Erro: arq '{nome_arquivo}' nao encontrado.")
 
 if __name__ == "__main__":
     main()
