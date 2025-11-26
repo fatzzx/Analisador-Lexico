@@ -1,37 +1,4 @@
-// TesteInicial.252
-// Arquivo de teste para o Analisador Léxico (Etapa 7).
-
-/*
-  Teste de comentário de bloco.
-  O analisador deve ignorar tudo isso.
-  Esta é a linha 6.
-*/
-
-PROGRAM Meu_Programa_Muito_Longo_0123456789_0123456789_0123456789
-// A linha acima testa a truncagem de identificadores (tem > 35 chars).
-// Também testa a regra de case-insensitive ('PROGRAM').
-
-declarations
-    varType integer: contador, var_1; // Teste de IDN com underscore
-    varType real: salario;
-    varType string: nome_completo;
-endDeclarations
-
-functions
-
-    funcType integer: calcula(paramType integer: ano)
-        // Teste de Símbolos Reservados Compostos e Constantes
-        contador := 2025 - ano;
-        salario := 1250.75;
-        nome_completo := "Fulano da Silva"; // Teste de stringConst
-
-        if (contador >= 18) # Teste do símbolo '#' (alias de '!=')
-            print "Maior de idade";
-        endif
-    
-    endFunction
-
-endFunctions
-endProgram
-
-// Fim do arquivo.
+var1 var2 var3
+var1 var1 var1
+var2 var2 var1
+; := [ real

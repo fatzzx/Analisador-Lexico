@@ -1,6 +1,7 @@
 from typing import Optional
 
-class Token:
+
+class TokenClass:
     def __init__(
         self, codigo: str, lexema: str, linha: int, indice_tab: Optional[int] = None
     ) -> None:
